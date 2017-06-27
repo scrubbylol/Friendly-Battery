@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Confirm action dialog
-    public void showConfirmDialog(View view, int pos) {
+    public void showConfirmDialog(View view, final int pos) {
         // Pos 0 - Texting
         // Pos 1 - Browsing Web
         // Pos 2 - Capture Photos
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
                         //Yes button clicked
-                        getDeviceSettings();
+                        getDeviceSettings(pos);
                         break;
 
                     case DialogInterface.BUTTON_NEGATIVE:
@@ -159,25 +159,37 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("No", dialogClickListener).show();
     }
 
-    public void getDeviceSettings() {
-        //startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+    public void toggleWifi(boolean tog) {
+        WifiManager wifi = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+        if (tog) {
+            wifi.setWifiEnabled(true);
+        } else {
+            wifi.setWifiEnabled(false);
+        }
+    }
+
+    public void toggleBluetooth(boolean tog) {
+        BluetoothAdapter blue = BluetoothAdapter.getDefaultAdapter();
+        if (tog) {
+            blue.enable();
+        } else {
+            blue.disable();
+        }
+    }
+
+    public void setScreenBrightness(float bright) {
+        if (Settings.System.canWrite(getApplicationContext())) {
+            WindowManager.LayoutParams lp = getWindow().getAttributes();
+            lp.screenBrightness = bright;
+            getWindow().setAttributes(lp);
+        }
+    }
+
+    public void getDeviceSettings(int pos) {
         ConnectivityManager manager = (ConnectivityManager)
                 getSystemService(MainActivity.CONNECTIVITY_SERVICE);
 
-        // Wifi
-        WifiManager wifi = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
-        if (wifi.isWifiEnabled()) {
-            wifi.setWifiEnabled(false);
-        }
-
-        // Bluetooth
-        BluetoothAdapter blue = BluetoothAdapter.getDefaultAdapter();
-        if (blue.isEnabled()) {
-            blue.disable();
-        }
-
-
-        // Screen brightness
+        // Access device
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.System.canWrite(getApplicationContext())) {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getPackageName()));
@@ -185,10 +197,22 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        if (Settings.System.canWrite(getApplicationContext())) {
-            WindowManager.LayoutParams lp = getWindow().getAttributes();
-            lp.screenBrightness = 0.1f / 100.0f;
-            getWindow().setAttributes(lp);
+        // Pos 0 - Texting
+        // Pos 1 - Browsing Web
+        // Pos 2 - Capture Photos
+        if (pos == 0) {
+            toggleWifi(false);
+            toggleBluetooth(false);
+            setScreenBrightness(0);
+        }
+        else if (pos == 1) {
+            toggleBluetooth(false);
+            setScreenBrightness(0);
+        }
+        else if (pos == 2) {
+            toggleWifi(false);
+            toggleBluetooth(false);
+            setScreenBrightness(25);
         }
     }
 }
