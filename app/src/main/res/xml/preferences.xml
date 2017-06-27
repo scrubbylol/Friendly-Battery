@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="wifi_setting"
+        android:title="@string/wifi_setting"
+        android:defaultValue="false" />
+    <CheckBoxPreference
+        android:key="bluetooth_setting"
+        android:title="@string/bluetooth_setting"
+        android:defaultValue="false" />
+    <CheckBoxPreference
+        android:key="pref_sync"
+        android:title="@string/pref_sync"
+        android:defaultValue="true" />
+
+    <Preference android:layout="@layout/sliderlayout" />
+
+
+</PreferenceScreen>
