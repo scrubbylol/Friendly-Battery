@@ -32,6 +32,8 @@ import android.widget.ListView;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -89,6 +91,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onResume() {
+        Log.e("testRandy", "onResume");
+        super.onResume();
+        final ListView list = (ListView) findViewById(R.id.my_list);
+
+        Boolean[] custom = checkCustomProfiles();
+        for (int i = 0; i < 3 ; i++) {
+            if (custom[i]) {
+                if (list.getChildAt(i + 3) != null) {
+                    list.getChildAt(i + 3).setEnabled(true);
+                }
+            }
+        }
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -96,8 +114,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Boolean[] checkCustomProfiles() {
+        Boolean[] check = new Boolean[3];
+        Arrays.fill(check, false);
+        int i =0;
 
-        return new Boolean[]{false, false, false};
+        List<SettingEntry> settings = JsonUtil.get3Settings(this);
+        for(SettingEntry se : settings) {
+            check[i] = true;
+            i ++;
+        }
+
+        return check;
     }
 
     // Revert settings dialog

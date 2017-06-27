@@ -3,165 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/home/wbao/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jar="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_bfe1736a3da9149347a59724cedbeb97b5d2e78d/classes.dex" />
+        sha1="fe121e94e42a1244b0e7edf3177a5c37fb7f18f0">
+        <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_fd7b54bd645b6424061909778909124a899165ec/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="886d1cf547aacd27656b79ae7a8dbcf5b007ac09">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2074cecb70ddc024438223b047cff6d4cdf13ee8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/f9bd5756c8b7c53a91b8b839a7a35b799357db67/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_29af55caec8f3569bdfb3a02a6bdfa5f0bf86b08/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/01e4088ce6c200e8eaa6b3718698a6ef99cf6119/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_876a4aec09a5b96a332cc46a83df657338a5d892/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5ba6a537d8a1143b84c5fd341964098cf093fade/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/c7cabee3c775199fe818cc4285e76661cb328f52/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ae681a05bf9eeb212dfad7a8cf63948e4f621945/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/d90d48fa225fb78db8a970ddf109f490283ece06/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_05c39d71fd4007b41abbe7b63286ce8e6c4426c4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.8.0_30dad543f0a9a2c315c4751c6ff60791a8536ee7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/b316e65e05c1770b05161b21424e721bc435ff36/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_cdccf9a340b17406b9999e94eb15c0f0dd09700a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/1c665caef343f8f39256a4893ceab8545720f3d1/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2714882aed06f12383c563283b367db795f86727/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/3f37dfb078a420e33266fafe302db769afde08df/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_455cfb301346a3cfcae4bbfc370c4f759b2bee10/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/be7e623c2f019be9da04ae51be81195cb2bb7603/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a1949064780cb4530ee6b1c543b96bd46a15d79a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/c2f12ac19c823226c8a47b12fc057f42fbc0ca56/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_29ffdeaa1e2e3f8d874f1b0f041d88f41cbd796f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_89c0e7c918c324c3179cdbbde80b1ad09eabd85d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/363c4f2b38a7d803711655648737bc52de47e97e/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b3a99fa1842d863b42c8faba4511c5f2d42692fa/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/bf15da302586db743883000b005541f655a9a674/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_43e696f6ab117bf9a21f28ff09b7ab60b66853cb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/950fa38f2aefa6c1e433fb4805ce2e3e77348371/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_925ba7a68bfaf537461cf46712a920d85c46c22a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/wbao/.android/build-cache/891acd7ee45ad3b63d55c4fd4ac05d527f6d4a0a/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e0b7f8746cda8b80ef6bc8d684738fdc8e7b88b0/classes.dex" />
+        <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_144ebfe6d3b153d6a2ca76fefeb2ecd0280efe4a/classes.dex" />
     </item>
 
 </items>
