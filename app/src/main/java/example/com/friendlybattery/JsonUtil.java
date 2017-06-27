@@ -11,13 +11,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.io.Writer;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -27,6 +24,8 @@ import java.util.List;
 /**
  * Created by wbao on 6/27/17.
  */
+
+// Reference: https://stackoverflow.com/questions/5766609/save-internal-file-in-my-own-internal-folder-in-android
 
 public class JsonUtil {
 
@@ -60,7 +59,10 @@ public class JsonUtil {
         return ret;
     }
 
-//https://stackoverflow.com/questions/5766609/save-internal-file-in-my-own-internal-folder-in-android
+    public static void flushDb(Context context) {
+        writeToFile(context, new ArrayList<SettingEntry>());
+    }
+
     private static void writeToFile(Context context, List<SettingEntry> data) {
         try {
             ContextWrapper cw = new ContextWrapper(context);
@@ -69,24 +71,16 @@ public class JsonUtil {
                 jsonFile.createNewFile();
                 jsonFile.mkdirs();
             }
-            File configFile = new File(jsonFile, "config.json");
 
             Gson gson = new Gson();
 
             String jsonStr = gson.toJson(data, fooType);
             Log.e("test0", "test1" + jsonStr);
 
-
-
             FileOutputStream fos = context.openFileOutput("config.json",Context.MODE_PRIVATE);
             Writer out = new OutputStreamWriter(fos);
             out.write(jsonStr);
             out.close();
-
-            //PrintWriter writer = new PrintWriter(configFile);
-            //writer.print("");
-            //writer.close();
-
         }
         catch (IOException e) {
             Log.e("Exception", "File write failed: " + e.toString());
@@ -105,16 +99,10 @@ public class JsonUtil {
                 jsonFile.createNewFile();
                 jsonFile.mkdirs();
             }
-            //File configFile = new File(jsonFile, "config.json");
             FileInputStream fis = context.openFileInput("config.json");
             BufferedReader r = new BufferedReader(new InputStreamReader(fis));
             json = r.readLine();
             r.close();
-            //int size = is.available();
-            //byte[] buffer = new byte[size];
-            //is.read(buffer);
-            //is.close();
-            //json = new String(buffer, "UTF-8");
 
         } catch (IOException e) {
             Log.e("login activity", "Can not read file: " + e.toString());
@@ -124,9 +112,7 @@ public class JsonUtil {
     }
 
 
-    public static HashMap<String, SettingEntry> getSettings(Context context) {
-
-
+    private static HashMap<String, SettingEntry> getSettings(Context context) {
         String jsonStr = readFromFile(context);
 
         Log.e("test0", "test0" + jsonStr);

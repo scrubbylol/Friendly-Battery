@@ -116,14 +116,11 @@ public class MainActivity extends AppCompatActivity {
     public Boolean[] checkCustomProfiles() {
         Boolean[] check = new Boolean[3];
         Arrays.fill(check, false);
-        int i =0;
 
         List<SettingEntry> settings = JsonUtil.get3Settings(this);
-        for(SettingEntry se : settings) {
+        for(int i = 0; i < settings.size(); ++i) {
             check[i] = true;
-            i ++;
         }
-
         return check;
     }
 
@@ -135,6 +132,17 @@ public class MainActivity extends AppCompatActivity {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
                         //Yes button clicked
+                        JsonUtil.flushDb(MainActivity.this);
+                        final ListView list = (ListView) findViewById(R.id.my_list);
+
+                        Boolean[] custom = checkCustomProfiles();
+                        for (int i = 0; i < 3 ; i++) {
+                            if (!custom[i]) {
+                                if (list.getChildAt(i + 3) != null) {
+                                    list.getChildAt(i + 3).setEnabled(false);
+                                }
+                            }
+                        }
 
                         break;
 
