@@ -3,6 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/pref_screen">
     <PreferenceCategory android:title="@string/pref_general_category">
+        <EditTextPreference
+            android:id="@+id/theme_title"
+            android:key="theme_title"
+            android:title="Theme Title"/>
         <CheckBoxPreference
             android:id="@+id/wifi_setting"
             android:key="wifi_setting"

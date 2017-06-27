@@ -21,6 +21,7 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -33,17 +34,16 @@ public class JsonUtil {
 
     public static void saveSetting(SettingEntry entry, Context context) {
 
-        ArrayList<SettingEntry> settings = getSettings(context);
-        settings.add(entry);
-        writeToFile(context, settings);
+        HashMap<String, SettingEntry> settings = getSettings(context);
+        settings.put(entry.title, entry);
+        List<SettingEntry> list = new ArrayList<>(settings.values());
+        writeToFile(context, list);
     }
 
     public static SettingEntry getConfig(String title, Context context) {
-        ArrayList<SettingEntry> configs = getSettings(context);
-        for (SettingEntry se : configs) {
-            if (se.title != null && se.title.equals(title)) {
-                return se;
-            }
+        HashMap<String, SettingEntry> configs = getSettings(context);
+        if (configs.containsKey(title)) {
+            return configs.get(title);
         }
         return null;
     }
@@ -111,7 +111,7 @@ public class JsonUtil {
     }
 
 
-    public static ArrayList<SettingEntry> getSettings(Context context) {
+    public static HashMap<String, SettingEntry> getSettings(Context context) {
 
 
         String jsonStr = readFromFile(context);
@@ -119,12 +119,16 @@ public class JsonUtil {
         Log.e("test0", "test0" + jsonStr);
 
         Gson gson = new Gson();
+        HashMap<String, SettingEntry> ret = new HashMap<> ();
         if (TextUtils.isEmpty(jsonStr)) {
-            return new ArrayList<> ();
+            return ret;
         }
         ArrayList<SettingEntry> formList = gson.fromJson(jsonStr, fooType);
+        for (SettingEntry se : formList) {
+            ret.put(se.title, se);
+        }
 
-        return formList;
+        return ret;
     }
 
 

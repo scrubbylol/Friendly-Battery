@@ -3,6 +3,7 @@ package example.com.friendlybattery;
 
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
@@ -28,16 +29,25 @@ public class SettingsActivity extends PreferenceActivity {
         //SeekBar brightnessSetting = (SeekBar)view.findViewById(R.id.lightness_setting);
         //final TextView seekBarStatus = (TextView)view.findViewById(R.id.seekBarStatus);
 
-
+        final EditTextPreference titleSetting = (EditTextPreference) getPreferenceScreen().findPreference("theme_title");
         final CheckBoxPreference bluetoothSetting = (CheckBoxPreference) getPreferenceScreen().findPreference("bluetooth_setting");
         final CheckBoxPreference wifi_setting = (CheckBoxPreference) getPreferenceScreen().findPreference("wifi_setting");
+
+
+        titleSetting.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                titleSetting.setTitle("Theme title: " + (String) newValue);
+                return true;
+            }
+        });
 
         Preference button = findPreference("save_button");
         button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 //code for what you want it to do
-                JsonUtil.saveSetting(new SettingEntry("current", bluetoothSetting.isChecked(), wifi_setting.isChecked(), 5), SettingsActivity.this);
+                JsonUtil.saveSetting(new SettingEntry(titleSetting.getText(), bluetoothSetting.isChecked(), wifi_setting.isChecked(), 5), SettingsActivity.this);
                 Toast.makeText(getApplicationContext(), "Stored", Toast.LENGTH_SHORT).show();
                 return true;
             }
