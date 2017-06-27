@@ -186,17 +186,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Confirm action dialog
-    public void showConfirmDialog(ListView l, final int pos) {
+    public void showConfirmDialog(final ListView l, final int pos) {
+        String type = "";
+        type = l.getItemAtPosition(pos).toString();
+
         // Pos 0 - Texting
         // Pos 1 - Browsing Web
         // Pos 2 - Capture Photos
+        final String finalType = type;
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
                         //Yes button clicked
-                        getDeviceSettings(pos);
+                        getDeviceSettings(finalType, pos);
                         break;
 
                     case DialogInterface.BUTTON_NEGATIVE:
@@ -205,8 +209,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-        String type = "";
-        type = l.getItemAtPosition(pos).toString();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Maximize battery saving for " + type).setPositiveButton("Yes", dialogClickListener)
@@ -240,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void getDeviceSettings(int pos) {
+    public void getDeviceSettings(String type, int pos) {
         ConnectivityManager manager = (ConnectivityManager)
                 getSystemService(MainActivity.CONNECTIVITY_SERVICE);
 
@@ -270,22 +272,21 @@ public class MainActivity extends AppCompatActivity {
             setScreenBrightness(25);
         }
         else {
-            List<SettingEntry> settings = JsonUtil.get3Settings(this);
-            for(SettingEntry se : settings) {
-                if (se.bluetoothStatus) {
-                    toggleBluetooth(true);
-                } else {
-                    toggleBluetooth(false);
-                }
+            SettingEntry se = JsonUtil.getConfig(type, this);
 
-                if (se.wifiStatu) {
-                    toggleWifi(true);
-                } else {
-                    toggleWifi(false);
-                }
-
-                setScreenBrightness(se.screenBrightness);
+            if (se.bluetoothStatus) {
+                toggleBluetooth(true);
+            } else {
+                toggleBluetooth(false);
             }
+
+            if (se.wifiStatu) {
+                toggleWifi(true);
+            } else {
+                toggleWifi(false);
+            }
+
+            setScreenBrightness(se.screenBrightness);
         }
     }
 }

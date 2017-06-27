@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5ba6a537d8a1143b84c5fd341964098cf093fade/classes.dex" />
+        <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_144ebfe6d3b153d6a2ca76fefeb2ecd0280efe4a/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="886d1cf547aacd27656b79ae7a8dbcf5b007ac09">
-        <dex dex="/home/wbao/sparkday/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2074cecb70ddc024438223b047cff6d4cdf13ee8/classes.dex" />
+        sha1="babf2c136b8a69712ac7e1de3269fd2d17fbfd4f">
+        <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_fd7b54bd645b6424061909778909124a899165ec/classes.dex" />
     </item>
 
 </items>
