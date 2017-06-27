@@ -270,7 +270,22 @@ public class MainActivity extends AppCompatActivity {
             setScreenBrightness(25);
         }
         else {
+            List<SettingEntry> settings = JsonUtil.get3Settings(this);
+            for(SettingEntry se : settings) {
+                if (se.bluetoothStatus) {
+                    toggleBluetooth(true);
+                } else {
+                    toggleBluetooth(false);
+                }
 
+                if (se.wifiStatu) {
+                    toggleWifi(true);
+                } else {
+                    toggleWifi(false);
+                }
+
+                setScreenBrightness(se.screenBrightness);
+            }
         }
     }
 }
