@@ -29,6 +29,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -63,14 +66,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("Log", String.valueOf(position));
-                showConfirmDialog(view, position);
+                showConfirmDialog(list, position);
             }
         });
 
         list.post(new Runnable() {
             @Override
             public void run() {
-                Boolean[] custom = checkCustomProfiles();
+                Boolean[] custom = checkCustomProfiles(list);
                 for (int i = 0; i < 3 ; i++) {
                     if (!custom[i]) {
                         list.getChildAt(i+3).setEnabled(false);
@@ -94,16 +97,30 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         Log.e("testRandy", "onResume");
         super.onResume();
+
         final ListView list = (ListView) findViewById(R.id.my_list);
 
-        Boolean[] custom = checkCustomProfiles();
-        for (int i = 0; i < 3 ; i++) {
-            if (custom[i]) {
-                if (list.getChildAt(i + 3) != null) {
-                    list.getChildAt(i + 3).setEnabled(true);
+        list.post(new Runnable() {
+            @Override
+            public void run() {
+                Boolean[] custom = checkCustomProfiles(list);
+                for (int i = 0; i < 3 ; i++) {
+                    if (custom[i]) {
+                        if (list.getChildAt(i + 3) != null) {
+                            list.getChildAt(i + 3).setEnabled(true);
+                            final int finalI = i;
+                            list.getChildAt(i + 3).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Log.d("Log", String.valueOf(finalI + 3));
+                                    showConfirmDialog(list, finalI + 3);
+                                }
+                            });
+                        }
+                    }
                 }
             }
-        }
+        });
     }
 
     @Override
@@ -113,13 +130,18 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public Boolean[] checkCustomProfiles() {
+    public Boolean[] checkCustomProfiles(ListView l) {
         Boolean[] check = new Boolean[3];
         Arrays.fill(check, false);
+        int i =0;
 
         List<SettingEntry> settings = JsonUtil.get3Settings(this);
-        for(int i = 0; i < settings.size(); ++i) {
+        for(SettingEntry se : settings) {
             check[i] = true;
+            TextView t = (TextView) l.getChildAt(i+3);
+            t.setText(se.title);
+
+            i ++;
         }
         return check;
     }
@@ -135,11 +157,15 @@ public class MainActivity extends AppCompatActivity {
                         JsonUtil.flushDb(MainActivity.this);
                         final ListView list = (ListView) findViewById(R.id.my_list);
 
-                        Boolean[] custom = checkCustomProfiles();
+                        Boolean[] custom = checkCustomProfiles(list);
                         for (int i = 0; i < 3 ; i++) {
                             if (!custom[i]) {
                                 if (list.getChildAt(i + 3) != null) {
                                     list.getChildAt(i + 3).setEnabled(false);
+                                    list.getChildAt(i + 3).setOnClickListener(null);
+                                    TextView t = (TextView) list.getChildAt(i+3);
+                                    int pOne = i + 1;
+                                    t.setText("Custom Profile " + pOne);
                                 }
                             }
                         }
@@ -160,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Confirm action dialog
-    public void showConfirmDialog(View view, final int pos) {
+    public void showConfirmDialog(ListView l, final int pos) {
         // Pos 0 - Texting
         // Pos 1 - Browsing Web
         // Pos 2 - Capture Photos
@@ -180,15 +206,9 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         String type = "";
-        if (pos == 0) {
-            type = "Texting?";
-        } else if (pos == 1) {
-            type = "Browsing Web?";
-        } else {
-            type = "Capture Photos?";
-        }
+        type = l.getItemAtPosition(pos).toString();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Maximize battery saving for " + type).setPositiveButton("Yes", dialogClickListener)
                 .setTitle("Are you sure?")
                 .setNegativeButton("No", dialogClickListener).show();
@@ -248,6 +268,9 @@ public class MainActivity extends AppCompatActivity {
             toggleWifi(false);
             toggleBluetooth(false);
             setScreenBrightness(25);
+        }
+        else {
+
         }
     }
 }
