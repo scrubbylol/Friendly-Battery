@@ -30,6 +30,7 @@ public class SettingsActivity extends PreferenceActivity {
         //final TextView seekBarStatus = (TextView)view.findViewById(R.id.seekBarStatus);
 
         final EditTextPreference titleSetting = (EditTextPreference) getPreferenceScreen().findPreference("theme_title");
+        titleSetting.setText("New theme");
         final CheckBoxPreference bluetoothSetting = (CheckBoxPreference) getPreferenceScreen().findPreference("bluetooth_setting");
         final CheckBoxPreference wifi_setting = (CheckBoxPreference) getPreferenceScreen().findPreference("wifi_setting");
 

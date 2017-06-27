@@ -47,6 +47,19 @@ public class JsonUtil {
         }
         return null;
     }
+
+    public static List<SettingEntry> get3Settings(Context context) {
+        HashMap<String, SettingEntry> configs = getSettings(context);
+        List<SettingEntry> ret = new ArrayList<>();
+        for (SettingEntry se : new ArrayList<SettingEntry>(configs.values())) {
+            if (ret.size() >= 3) {
+                break;
+            }
+            ret.add(se);
+        }
+        return ret;
+    }
+
 //https://stackoverflow.com/questions/5766609/save-internal-file-in-my-own-internal-folder-in-android
     private static void writeToFile(Context context, List<SettingEntry> data) {
         try {
