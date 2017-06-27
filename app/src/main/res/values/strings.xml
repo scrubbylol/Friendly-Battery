@@ -11,4 +11,5 @@
         <item>Browsing Web</item>
         <item>Capture Photos</item>
     </string-array>
+    <string name="pref_general_category">Create new settings</string>
 </resources>
