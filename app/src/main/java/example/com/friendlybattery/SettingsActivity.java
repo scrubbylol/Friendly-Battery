@@ -31,6 +31,8 @@ public class SettingsActivity extends PreferenceActivity {
 
         final EditTextPreference titleSetting = (EditTextPreference) getPreferenceScreen().findPreference("theme_title");
         titleSetting.setText("New theme");
+        final EditTextPreference brightSetting = (EditTextPreference) getPreferenceScreen().findPreference("brightness");
+        brightSetting.setText("0");
         final CheckBoxPreference bluetoothSetting = (CheckBoxPreference) getPreferenceScreen().findPreference("bluetooth_setting");
         final CheckBoxPreference wifi_setting = (CheckBoxPreference) getPreferenceScreen().findPreference("wifi_setting");
 
@@ -43,12 +45,35 @@ public class SettingsActivity extends PreferenceActivity {
             }
         });
 
+        brightSetting.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                brightSetting.setTitle("Screen Brightness: " + (String) newValue + "/255");
+                return true;
+            }
+        });
+
         Preference button = findPreference("save_button");
         button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
+                String brightness = brightSetting.getText();
+                int brightInt;
+                boolean valid = true;
+                for (char c : brightness.toCharArray()) {
+                    if (!Character.isDigit(c)) {
+                        valid = false;
+                        break;
+                    }
+                }
+                if (valid && Integer.parseInt(brightness) > 0 && Integer.parseInt(brightness) < 256) {
+                    brightInt = Integer.parseInt(brightness);
+                } else {
+                    brightInt = 122;
+                }
+
                 //code for what you want it to do
-                JsonUtil.saveSetting(new SettingEntry(titleSetting.getText(), bluetoothSetting.isChecked(), wifi_setting.isChecked(), 5), SettingsActivity.this);
+                JsonUtil.saveSetting(new SettingEntry(titleSetting.getText(), bluetoothSetting.isChecked(), wifi_setting.isChecked(), brightInt), SettingsActivity.this);
                 Toast.makeText(getApplicationContext(), "Stored", Toast.LENGTH_SHORT).show();
                 return true;
             }

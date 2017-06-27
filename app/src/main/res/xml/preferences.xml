@@ -18,6 +18,11 @@
             android:title="@string/bluetooth_setting"
             android:defaultValue="false" />
 
+        <EditTextPreference
+            android:id="@+id/brightness"
+            android:key="brightness"
+            android:title="Screen Brightness:"/>
+
     </PreferenceCategory>
 
     <Preference android:title="Save Current Setting"
