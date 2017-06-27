@@ -25,7 +25,7 @@
         android:layout_height="300dp"
         android:layout_above="@+id/fab"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="40dp"
         android:choiceMode="singleChoice"
         android:entries="@array/config_array"
         android:listSelector="@android:color/darker_gray" />
@@ -45,11 +45,19 @@
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="What would you like to do?"
+        android:layout_marginBottom="20dp"
+        android:text="What would you like to maximize for?"
         android:textSize="18sp"
         android:layout_above="@+id/my_list"
         android:layout_alignParentStart="true"
         android:layout_marginStart="15dp" />
+
+    <Button
+        android:id="@+id/revert_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_list"
+        android:layout_centerHorizontal="true"
+        android:text="Revert Settings" />
 
 </RelativeLayout>

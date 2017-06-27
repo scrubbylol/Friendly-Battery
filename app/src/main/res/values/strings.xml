@@ -3,13 +3,16 @@
     <string name="action_settings">Settings</string>
     <string name="pref_sync">Settings</string>
     <string name="pref_sync_summ">Setting screen</string>
-    <string name="wifi_setting">Turn on wifi</string>
-    <string name="bluetooth_setting">turn on bluetooth</string>
+    <string name="wifi_setting">Turn on WiFi</string>
+    <string name="bluetooth_setting">Turn on bluetooth</string>
     <string name="brightness">Screen Brightness</string>
     <string-array name="config_array">
         <item>Texting</item>
         <item>Browsing Web</item>
         <item>Capture Photos</item>
+        <item>Custom Profile 1</item>
+        <item>Custom Profile 2</item>
+        <item>Custom Profile 3</item>
     </string-array>
     <string name="pref_general_category">Create new settings</string>
 </resources>
