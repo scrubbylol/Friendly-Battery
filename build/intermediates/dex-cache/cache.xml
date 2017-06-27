@@ -30,15 +30,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/rnguyen/.android/build-cache/0b55c11521f5dad397331d44a5c99153a0483b0a/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/pre-dexed/debug/classes_e80388e06374a82bc7eac4a72163227b1604ec8d.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/rnguyen/.android/build-cache/7fafc79ca2cacbfa15de711082cc689275e81c77/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -48,12 +39,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/rnguyen/.android/build-cache/79d01841a46ad31986c30977b9a81b0134b58057/output/jars/classes.jar"
+        jar="/home/rnguyen/.android/build-cache/0b55c11521f5dad397331d44a5c99153a0483b0a/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/pre-dexed/debug/classes_42fb603e1fe2fefe8c4ece865b1130da0ca84c54.jar" />
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/pre-dexed/debug/classes_e80388e06374a82bc7eac4a72163227b1604ec8d.jar" />
     </item>
     <item
         is-multidex="false"
@@ -63,6 +54,15 @@
         revision="25.0.3"
         sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
         <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/pre-dexed/debug/classes_ee6994fadd71534db50706fc78531f99c9dbbf56.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/rnguyen/.android/build-cache/79d01841a46ad31986c30977b9a81b0134b58057/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/pre-dexed/debug/classes_42fb603e1fe2fefe8c4ece865b1130da0ca84c54.jar" />
     </item>
     <item
         is-multidex="false"
@@ -81,6 +81,15 @@
         revision="25.0.3"
         sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
         <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/pre-dexed/debug/classes_07320cdfd7eaa7f95a77cd73592482249ef24c20.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f46bd9b0d6091541e0b0772ec40f0447a95913e7">
+        <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_fd7b54bd645b6424061909778909124a899165ec/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -126,6 +135,15 @@
         revision="25.0.3"
         sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
         <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/pre-dexed/debug/classes_65d829cd3951965ce2e7269c5946328a04774b1e.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/home/rnguyen/devel/FriendlyBattery/Friendly-Battery/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_144ebfe6d3b153d6a2ca76fefeb2ecd0280efe4a/classes.dex" />
     </item>
     <item
         is-multidex="false"

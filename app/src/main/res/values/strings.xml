@@ -6,4 +6,9 @@
     <string name="wifi_setting">Turn on wifi</string>
     <string name="bluetooth_setting">turn on bluetooth</string>
     <string name="brightness">Screen Brightness</string>
+    <string-array name="config_array">
+        <item>Texting</item>
+        <item>Browsing Web</item>
+        <item>Capture Photos</item>
+    </string-array>
 </resources>
