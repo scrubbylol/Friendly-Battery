@@ -30,6 +30,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -188,7 +189,8 @@ public class MainActivity extends AppCompatActivity {
     // Confirm action dialog
     public void showConfirmDialog(final ListView l, final int pos) {
         String type = "";
-        type = l.getItemAtPosition(pos).toString();
+        TextView childView = (TextView)l.getChildAt(pos);
+        type = (String)childView.getText();
 
         // Pos 0 - Texting
         // Pos 1 - Browsing Web
@@ -236,9 +238,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void setScreenBrightness(float bright) {
         if (Settings.System.canWrite(getApplicationContext())) {
+            Toast.makeText(getApplicationContext(), "Can change vrightness", Toast.LENGTH_SHORT).show();
+
+            Settings.System.putInt(this.getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS, (int)bright);
+
             WindowManager.LayoutParams lp = getWindow().getAttributes();
-            lp.screenBrightness = bright;
+            lp.screenBrightness = bright/100;//bright;
             getWindow().setAttributes(lp);
+            startActivity(new Intent(this, RefreshScreen.class));
         }
     }
 
@@ -260,11 +268,11 @@ public class MainActivity extends AppCompatActivity {
         if (pos == 0) {
             toggleWifi(false);
             toggleBluetooth(false);
-            setScreenBrightness(0);
+            setScreenBrightness(1);
         }
         else if (pos == 1) {
             toggleBluetooth(false);
-            setScreenBrightness(0);
+            setScreenBrightness(1);
         }
         else if (pos == 2) {
             toggleWifi(false);
