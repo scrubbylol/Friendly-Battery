@@ -27,8 +27,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="40dp"
         android:choiceMode="singleChoice"
-        android:entries="@array/config_array"
-        android:listSelector="@android:color/darker_gray" />
+        android:entries="@array/config_array" />
 
     <TextView
         android:id="@+id/title"

@@ -7,6 +7,7 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.hardware.display.DisplayManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Set predefined battery saving options
         final ListView list = (ListView) findViewById(R.id.my_list);
+        list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        list.setSelector(R.color.colorGrey);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -100,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         final ListView list = (ListView) findViewById(R.id.my_list);
+        list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        list.setSelector(R.color.colorGrey);
 
         list.post(new Runnable() {
             @Override
@@ -202,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
                         //Yes button clicked
-                        getDeviceSettings(finalType, pos);
+                        getDeviceSettings(l, pos);
                         break;
 
                     case DialogInterface.BUTTON_NEGATIVE:
@@ -236,9 +241,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void setScreenBrightness(float bright) {
+    /*public void setScreenBrightness(float bright) {
         if (Settings.System.canWrite(getApplicationContext())) {
-            Toast.makeText(getApplicationContext(), "Can change vrightness", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Can change brightness", Toast.LENGTH_SHORT).show();
 
             Settings.System.putInt(this.getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS, (int)bright);
@@ -248,9 +253,17 @@ public class MainActivity extends AppCompatActivity {
             getWindow().setAttributes(lp);
             startActivity(new Intent(this, RefreshScreen.class));
         }
+    }*/
+
+    public void setScreenBrightness(float bright) {
+        if (Settings.System.canWrite(getApplicationContext())) {
+            WindowManager.LayoutParams lp = getWindow().getAttributes();
+            lp.screenBrightness = bright;
+            getWindow().setAttributes(lp);
+        }
     }
 
-    public void getDeviceSettings(String type, int pos) {
+    public void getDeviceSettings(ListView l, int pos) {
         ConnectivityManager manager = (ConnectivityManager)
                 getSystemService(MainActivity.CONNECTIVITY_SERVICE);
 
@@ -280,7 +293,11 @@ public class MainActivity extends AppCompatActivity {
             setScreenBrightness(25);
         }
         else {
-            SettingEntry se = JsonUtil.getConfig(type, this);
+            TextView t = (TextView) l.getChildAt(pos);
+            String str = (String) t.getText();
+
+            SettingEntry se = JsonUtil.getConfig(str, this);
+            Log.e("TEST", str);
 
             if (se.bluetoothStatus) {
                 toggleBluetooth(true);
